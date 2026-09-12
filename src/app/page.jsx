@@ -1,8 +1,13 @@
+"use client";
+
+import FAQ from "./components/Faq";
+import HeaderMain from "./components/Header";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1>Hola</h1>
-    </div>
-  );
+	return (
+		<>
+			<HeaderMain />
+			<FAQ />
+		</>
+	);
 }

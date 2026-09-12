@@ -1,0 +1,427 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+	background-color: var(--color-primary-800);
+	color: var(--color-white);
+	margin-top: var(--spacing-3xl);
+	position: relative;
+}
+
+/* ============================================
+   MAIN FOOTER CONTENT
+   ============================================ */
+
+.container {
+	max-width: 1152px;
+	margin: 0 auto;
+	padding: var(--spacing-3xl) var(--spacing-md);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--spacing-2xl);
+}
+
+@media (min-width: 640px) {
+	.container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* ============================================
+   COLUMN STYLES
+   ============================================ */
+
+.column {
+	animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	animation-fill-mode: both;
+}
+
+.column:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.column:nth-child(2) {
+	animation-delay: 0.1s;
+}
+
+.column:nth-child(3) {
+	animation-delay: 0.2s;
+}
+
+.column:nth-child(4) {
+	animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.columnTitle {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--color-white);
+	margin-bottom: var(--spacing-md);
+	font-family: var(--font-serif);
+	letter-spacing: -0.5px;
+}
+
+.columnText {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.6;
+	margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================
+   SOCIAL MEDIA LINKS
+   ============================================ */
+
+.socialLinks {
+	display: flex;
+	gap: var(--spacing-md);
+	margin-top: var(--spacing-lg);
+}
+
+.socialIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	font-size: 1.25rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+	text-decoration: none;
+	border: 2px solid transparent;
+}
+
+.socialIcon:hover {
+	background-color: var(--color-secondary-600);
+	border-color: var(--color-secondary-600);
+	transform: translateY(-4px);
+	box-shadow: 0 8px 16px rgba(212, 165, 116, 0.3);
+}
+
+.socialIcon:focus-visible {
+	outline: 2px solid var(--color-secondary-300);
+	outline-offset: 2px;
+}
+
+/* ============================================
+   NAVIGATION LINKS
+   ============================================ */
+
+.navLinks {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.link {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	font-size: 0.9rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	display: inline-block;
+	position: relative;
+	padding-bottom: 0.25rem;
+}
+
+.link:hover {
+	color: var(--color-secondary-600);
+	padding-left: 0.5rem;
+}
+
+.link:focus-visible {
+	outline: 2px solid var(--color-secondary-300);
+	outline-offset: 2px;
+	border-radius: 0.25rem;
+}
+
+.link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--color-secondary-600);
+	transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover::after {
+	width: 100%;
+}
+
+/* ============================================
+   CONTACT INFO
+   ============================================ */
+
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-lg);
+}
+
+.contactItem {
+	display: flex;
+	gap: var(--spacing-md);
+	align-items: flex-start;
+}
+
+.contactIcon {
+	font-size: 1.25rem;
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	min-height: 24px;
+}
+
+.contactText {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.5;
+	margin: 0;
+}
+
+.contactLink {
+	font-size: 0.9rem;
+	color: var(--color-secondary-600);
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.contactLink:hover {
+	color: var(--color-secondary-400);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.contactLink:focus-visible {
+	outline: 2px solid var(--color-secondary-300);
+	outline-offset: 2px;
+	border-radius: 0.25rem;
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+
+.divider {
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.1);
+	margin: 0 var(--spacing-md);
+}
+
+/* ============================================
+   BOTTOM FOOTER
+   ============================================ */
+
+.bottomFooter {
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: var(--spacing-lg) var(--spacing-md);
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottomContainer {
+	max-width: 1152px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+	.bottomContainer {
+		flex-direction: row;
+	}
+}
+
+.copyright {
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+}
+
+.copyright p {
+	margin: 0;
+}
+
+/* ============================================
+   LEGAL LINKS
+   ============================================ */
+
+.legalLinks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spacing-lg);
+	justify-content: center;
+}
+
+@media (min-width: 768px) {
+	.legalLinks {
+		justify-content: flex-end;
+	}
+}
+
+.legalLink {
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.6);
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.legalLink:hover {
+	color: var(--color-secondary-600);
+}
+
+.legalLink:focus-visible {
+	outline: 2px solid var(--color-secondary-300);
+	outline-offset: 2px;
+	border-radius: 0.25rem;
+}
+
+/* ============================================
+   MOBILE CTA BAR
+   ============================================ */
+
+.mobileCtaBar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--color-secondary-600);
+	padding: 0;
+	z-index: 40;
+	box-shadow: 0 -4px 12px rgba(255, 255, 255, 0.15);
+	display: none;
+}
+
+@media (max-width: 767px) {
+	.mobileCtaBar {
+		display: block;
+	}
+}
+
+.mobileCtaButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--color-secondary-600);
+	color: var(--color-white);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border: none;
+	cursor: pointer;
+	min-height: 48px;
+}
+
+.mobileCtaButton:active {
+	background-color: var(--color-secondary-500);
+	transform: scale(0.98);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+	.container {
+		padding: var(--spacing-2xl) var(--spacing-md) 5rem;
+		gap: var(--spacing-xl);
+	}
+
+	.columnTitle {
+		font-size: 1rem;
+	}
+
+	.columnText {
+		font-size: 0.85rem;
+	}
+
+	.link {
+		font-size: 0.85rem;
+	}
+
+	.contactText {
+		font-size: 0.85rem;
+	}
+
+	.bottomContainer {
+		gap: var(--spacing-md);
+	}
+
+	.legalLinks {
+		gap: var(--spacing-md);
+	}
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	.column,
+	.socialIcon,
+	.link,
+	.contactLink,
+	.legalLink,
+	.mobileCtaButton {
+		animation: none !important;
+		transition: none !important;
+	}
+
+	.link::after {
+		display: none;
+	}
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+
+@media print {
+	.footer {
+		background-color: transparent;
+		color: var(--color-gray-900);
+		border-top: 1px solid var(--color-gray-200);
+	}
+
+	.socialIcon,
+	.mobileCtaBar {
+		display: none;
+	}
+
+	.link,
+	.contactLink,
+	.legalLink {
+		color: var(--color-primary-900);
+	}
+}

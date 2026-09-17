@@ -116,3 +116,12 @@
         padding: 1.5rem;
     }
 }
+
+/* app/page.module.css */
+
+.contactSection {
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+    scroll-margin-top: 100px;
+    /* <-- compensa la altura del navbar sticky */
+}

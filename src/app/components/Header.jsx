@@ -4,11 +4,18 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
 
+/*
+  Navegación:
+  - Inicio             -> /           (página actual)
+  - Sobre Nosotros     -> /sobre-nosotros (otra pestaña/página)
+  - Servicios          -> /servicios      (otra pestaña/página)
+  - Contacto           -> #contacto       (ancla a la sección de la home)
+*/
 const navigation = [
 	{ label: 'Inicio', href: '/' },
 	{ label: 'Sobre Nosotros', href: '/sobre-nosotros' },
 	{ label: 'Servicios', href: '/servicios' },
-	{ label: 'Contacto', href: '/contacto' },
+	{ label: 'Contacto', href: '#contacto' }, // <-- ahora es ancla
 ];
 
 export default function Header() {
@@ -33,7 +40,7 @@ export default function Header() {
 
 					{/* Menu Desktop */}
 					<div className={styles.navMenu}>
-						{navigation.map(item => (
+						{navigation.map((item) => (
 							<Link
 								key={item.href}
 								href={item.href}
@@ -44,8 +51,8 @@ export default function Header() {
 						))}
 					</div>
 
-					{/* CTA Button Desktop */}
-					<Link href="/contacto" className={styles.ctaButton}>
+					{/* CTA Button Desktop -> va al ancla de contacto */}
+					<Link href="#contacto" className={styles.ctaButton}>
 						Consultar
 					</Link>
 
@@ -73,7 +80,7 @@ export default function Header() {
 							✕
 						</button>
 						<div className={styles.mobileMenuContent}>
-							{navigation.map(item => (
+							{navigation.map((item) => (
 								<Link
 									key={item.href}
 									href={item.href}
@@ -84,7 +91,7 @@ export default function Header() {
 								</Link>
 							))}
 							<Link
-								href="/contacto"
+								href="#contacto"
 								className={styles.mobileCta}
 								onClick={closeMobileMenu}
 							>
@@ -114,7 +121,7 @@ export default function Header() {
 					<p className={styles.heroSubtitle}>
 						Más de 25 años de experiencia profesional
 					</p>
-					<Link href="/contacto" className={styles.heroCta}>
+					<Link href="#contacto" className={styles.heroCta}>
 						Consultar Ahora
 					</Link>
 				</div>

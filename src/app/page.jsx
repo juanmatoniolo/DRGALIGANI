@@ -1,11 +1,11 @@
 "use client";
 
 import ContactForm from "./components/ContactForm";
-import ContactInfo from "./components/ContactInfo"; // <-- Importamos el nuevo componente
+import ContactInfo from "./components/ContactInfo";
 import FAQ from "./components/Faq";
 import Footer from "./components/Footer";
 import HeaderMain from "./components/Header";
-import styles from "./page.module.css"; // <-- Asegurate de crear este archivo
+import styles from "./page.module.css";
 
 export default function Home() {
 	return (
@@ -14,11 +14,11 @@ export default function Home() {
 			<FAQ />
 
 			{/* ============================
-			    SECCIÓN CONTACTO REDISEÑADA
+			    SECCIÓN CONTACTO
+			    id="contacto" permite el scroll desde el Header
 			    ============================ */}
-			<section className={styles.contactSection}>
+			<section id="contacto" className={styles.contactSection}>
 				<div className={styles.container}>
-					{/* Encabezado de la sección */}
 					<div className={styles.sectionHeader}>
 						<span className={styles.sectionTag}>Estamos para ayudarte</span>
 						<h2 className={styles.sectionTitle}>Contactanos</h2>
@@ -28,7 +28,6 @@ export default function Home() {
 						</p>
 					</div>
 
-					{/* Grid principal: Info + Formulario */}
 					<div className={styles.contactGrid}>
 						<div className={styles.infoColumn}>
 							<ContactInfo />

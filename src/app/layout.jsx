@@ -23,7 +23,7 @@ const inter = Inter({
    METADATA GLOBAL
    ========================================================= */
 export const metadata = {
-  metadataBase: new URL('https://dominio.com'), // ⚠️ reemplazar con tu dominio real
+  metadataBase: new URL('https://dominio.com'),
   title: {
     default: 'Especialista en Derecho de Daños - Dr. Galígani',
     template: '%s | Dr. Galígani',
@@ -56,7 +56,7 @@ export const metadata = {
       'Abogado especialista en responsabilidad civil, accidentes de tránsito y derecho de seguros.',
     images: [
       {
-        url: '/og-image.jpg', // ⚠️ crear en /public
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Dr. Galígani - Especialista en Derecho de Daños',
@@ -90,7 +90,7 @@ export const metadata = {
 };
 
 /* =========================================================
-   VIEWPORT (separado en Next 14+)
+   VIEWPORT
    ========================================================= */
 export const viewport = {
   width: 'device-width',
@@ -112,19 +112,19 @@ const localBusinessSchema = {
   description:
     'Estudio jurídico especializado en derecho de daños, responsabilidad civil y accidentes de tránsito.',
   url: 'https://dominio.com',
-  telephone: '+54-11-0000-0000', // ⚠️ reemplazar
-  email: 'contacto@dominio.com', // ⚠️ reemplazar
+  telephone: '+54-11-0000-0000',
+  email: 'contacto@dominio.com',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '[Dirección]', // ⚠️ reemplazar
+    streetAddress: '[Dirección]',
     addressLocality: 'Buenos Aires',
     addressRegion: 'CABA',
-    postalCode: '[CP]', // ⚠️ reemplazar
+    postalCode: '[CP]',
     addressCountry: 'AR',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: -34.6037, // ⚠️ reemplazar con coords reales
+    latitude: -34.6037,
     longitude: -58.3816,
   },
   areaServed: {
@@ -141,8 +141,8 @@ const localBusinessSchema = {
     },
   ],
   sameAs: [
-    'https://www.linkedin.com/in/[perfil]', // ⚠️ reemplazar
-    'https://www.instagram.com/[perfil]', // ⚠️ reemplazar
+    'https://www.linkedin.com/in/[perfil]',
+    'https://www.instagram.com/[perfil]',
   ],
   knowsAbout: [
     'Derecho de Daños',
@@ -156,7 +156,7 @@ const localBusinessSchema = {
    ROOT LAYOUT
    ========================================================= */
 export default function RootLayout({ children }) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID; // ⚠️ opcional: configurar en .env.local
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html
@@ -172,12 +172,20 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className="min-h-screen flex flex-col antialiased bg-white text-[#1f2937]">
+      {/*
+        suppressHydrationWarning en <body>:
+        evita el warning de hidratación causado por extensiones del navegador
+        (ej: ColorZilla agrega cz-shortcut-listen="true").
+        NO afecta el render ni el SEO; solo silencia el aviso en desarrollo.
+      */}
+      <body
+        className="min-h-screen flex flex-col antialiased bg-white text-[#1f2937]"
+        suppressHydrationWarning
+      >
         {children}
 
         {/* ============================================
             GOOGLE ANALYTICS 4 (opcional)
-            Solo se carga si NEXT_PUBLIC_GA_ID está definido
             ============================================ */}
         {gaId && (
           <>

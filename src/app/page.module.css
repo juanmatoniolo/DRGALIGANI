@@ -1,0 +1,118 @@
+/* app/page.module.css */
+
+.contactSection {
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #d4a574;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.5rem;
+    color: #0f2a4a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.sectionSubtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.sectionSubtitle strong {
+    color: #0f2a4a;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.infoColumn {
+    width: 100%;
+}
+
+.formColumn {
+    width: 100%;
+}
+
+.formCard {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(15, 42, 74, 0.06);
+    border: 1px solid #f1f5f9;
+}
+
+/* ============================================
+   MEDIA QUERIES
+   ============================================ */
+
+@media (min-width: 1024px) {
+    .contactGrid {
+        grid-template-columns: 1fr 1.8fr;
+        gap: 3rem;
+        align-items: stretch;
+    }
+
+    .sectionTitle {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .contactGrid {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contactSection {
+        padding: 3rem 1rem;
+    }
+
+    .sectionHeader {
+        margin-bottom: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+    }
+
+    .formCard {
+        padding: 1.5rem;
+    }
+}

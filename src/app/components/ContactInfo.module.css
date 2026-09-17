@@ -1,0 +1,109 @@
+/* components/ContactInfo.module.css */
+
+.infoCard {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(15, 42, 74, 0.06);
+    border: 1px solid #f1f5f9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 1.5rem;
+    color: #0f2a4a;
+    margin-bottom: 0.5rem;
+}
+
+.infoSubtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.infoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-grow: 1;
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.iconBox {
+    width: 44px;
+    height: 44px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid #e2e8f0;
+}
+
+.infoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.infoText,
+.infoLink {
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.infoLink:hover {
+    color: #d4a574;
+}
+
+.infoFooter {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.infoFooter p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .infoCard {
+        padding: 1.5rem;
+    }
+
+    .infoTitle {
+        font-size: 1.25rem;
+    }
+}

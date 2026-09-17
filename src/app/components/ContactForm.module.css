@@ -1,0 +1,223 @@
+/* components/ContactForm.module.css */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0f2a4a;
+    margin-bottom: 0.5rem;
+    padding: 0;
+}
+
+.subLabel {
+    display: block;
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+}
+
+.required {
+    color: #dc2626;
+    margin-left: 0.125rem;
+}
+
+.legendHint {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-left: 0.25rem;
+    font-weight: 400;
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+.input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 1rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+    font-style: normal;
+}
+
+.input:focus {
+    background-color: #ffffff;
+    border-color: #d4a574;
+    box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.15);
+}
+
+.inputError {
+    border-color: #fca5a5;
+    background-color: #fef2f2;
+}
+
+.inputError:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   GRID CONTACTO
+   ============================================ */
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   ERRORES
+   ============================================ */
+.errorText {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: #dc2626;
+    line-height: 1.4;
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+.alertSuccess {
+    padding: 1rem;
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-radius: 10px;
+    border: 1px solid #a7f3d0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.alertError {
+    padding: 1rem;
+    background-color: #fef2f2;
+    color: #7f1d1d;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ============================================
+   BOTÓN SUBMIT
+   ============================================ */
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-family: var(--font-sans, 'Inter', sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #0f2a4a;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 0.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: #d4a574;
+    color: #0f2a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+}
+
+.submitButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submitButton:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ============================================
+   NOTA LEGAL
+   ============================================ */
+.legalNote {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.legalLink {
+    color: #d4a574;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+    color: #b08d5b;
+}
+
+/* ============================================
+   MEDIA QUERIES (Responsive)
+   ============================================ */
+
+/* Tablets y pantallas medianas: 2 columnas para celular y email */
+@media (min-width: 640px) {
+    .contactGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Móviles: Ajuste de padding y tamaño de fuente para evitar zoom en iOS */
+@media (max-width: 480px) {
+    .input {
+        font-size: 16px;
+        /* Evita zoom automático en iOS */
+        padding: 0.75rem;
+    }
+
+    .submitButton {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+}

@@ -176,11 +176,11 @@ export default function Footer() {
 				</div>
 			</div>
 
-			{/* CTA Sticky Button Mobile */}
+			{/* CTA Sticky Button Mobile — en Footer.jsx */}
 			<div className={styles.mobileCtaBar}>
-				<a href="/contacto" className={styles.mobileCtaButton}>
+				<Link href="/#contacto" className={styles.mobileCtaButton}>
 					Consultar Ahora
-				</a>
+				</Link>
 			</div>
 		</footer>
 	);

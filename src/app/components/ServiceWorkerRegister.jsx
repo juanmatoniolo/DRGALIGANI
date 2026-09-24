@@ -6,8 +6,9 @@ export default function ServiceWorkerRegister() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
         if (!('serviceWorker' in navigator)) return;
-        // En desarrollo los SW cachean agresivamente y molestan.
-        // Solo registramos en producción.
+
+        // En desarrollo, Next.js con Turbopack puede chocar con el SW.
+        // Registramos solo en producción.
         if (process.env.NODE_ENV !== 'production') return;
 
         const register = () => {
@@ -15,6 +16,9 @@ export default function ServiceWorkerRegister() {
                 .register('/sw.js', { scope: '/' })
                 .then((reg) => {
                     console.log('[SW] Registrado:', reg.scope);
+
+                    // Buscar updates cada 60 minutos
+                    setInterval(() => reg.update(), 60 * 60 * 1000);
                 })
                 .catch((err) => {
                     console.error('[SW] Error al registrar:', err);

@@ -1,8 +1,8 @@
 // src/app/layout.js
 import { Merriweather, Inter } from 'next/font/google';
 import Script from 'next/script';
-import CookieConsent from './components/CookieConsent';
-import ServiceWorkerRegister from './components/ServiceWorkerRegister';
+import CookieConsent from '../components/CookieConsent';
+import ServiceWorkerRegister from '../components/ServiceWorkerRegister';
 import {
   SITE_URL,
   SITE_NAME,
@@ -69,10 +69,11 @@ export const metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: '/og-image.jpg',
+        url: `${SITE_URL}/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: `${SITE_NAME} - Especialista en Derecho de Daños`,
+        type: 'image/jpeg',
       },
     ],
   },
@@ -80,7 +81,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
     description: SITE_DESCRIPTION,
-    images: ['/og-image.jpg'],
+    images: [`${SITE_URL}/og-image.jpg`],
   },
   icons: {
     icon: [
@@ -98,6 +99,7 @@ export const metadata = {
     capable: true,
     statusBarStyle: 'default',
     title: SITE_SHORT_NAME,
+    startupImage: ['/apple-touch-icon.png'],
   },
   robots: {
     index: true,
@@ -115,6 +117,13 @@ export const metadata = {
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+  },
+  // Fuerza ciertos meta tags que algunos scrapers (WhatsApp) leen
+  other: {
+    'og:image:secure_url': `${SITE_URL}/og-image.jpg`,
+    'og:image:width': '1200',
+    'og:image:height': '630',
+    'og:image:type': 'image/jpeg',
   },
 };
 

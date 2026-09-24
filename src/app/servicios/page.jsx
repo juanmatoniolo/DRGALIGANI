@@ -9,15 +9,15 @@ import styles from './page.module.css';
    SEO
    ========================= */
 export const metadata = {
-    title: 'Servicios',
+    title: 'Servicios Jurídicos',
     description:
-        'Servicios jurídicos especializados en responsabilidad civil, derecho de seguros, accidentes de tránsito y riesgos del trabajo. Más de 25 años de experiencia.',
-    alternates: { canonical: 'https://dominio.com/servicios' },
+        'Servicios especializados en responsabilidad civil, derecho de seguros, accidentes de tránsito y riesgos del trabajo. Consultá sin cargo.',
+    alternates: { canonical: '/servicios' },
     openGraph: {
-        title: 'Servicios | Estudio Jurídico Dr. Galígani',
+        title: 'Servicios Jurídicos | Dr. Galígani',
         description:
-            'Especialistas en derecho de daños. Conocé nuestras áreas de práctica y respaldá tu caso con un equipo de primer nivel.',
-        url: 'https://dominio.com/servicios',
+            'Cuatro áreas de especialización para cubrir las situaciones más frecuentes en derecho de daños.',
+        url: '/servicios',
         type: 'website',
     },
 };

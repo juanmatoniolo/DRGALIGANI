@@ -6,28 +6,23 @@ import styles from './Header.module.css';
 
 /*
   Navegación:
-  - Inicio             -> /           (página actual)
-  - Sobre Nosotros     -> /sobre-nosotros (otra pestaña/página)
-  - Servicios          -> /servicios      (otra pestaña/página)
-  - Contacto           -> #contacto       (ancla a la sección de la home)
+  - Inicio             -> /
+  - Sobre Nosotros     -> /sobre-nosotros
+  - Servicios          -> /servicios
+  - Contacto           -> /#contacto   (ancla en la home)
 */
 const navigation = [
 	{ label: 'Inicio', href: '/' },
 	{ label: 'Sobre Nosotros', href: '/sobre-nosotros' },
 	{ label: 'Servicios', href: '/servicios' },
-	{ label: 'Contacto', href: '#contacto' }, // <-- ahora es ancla
+	{ label: 'Contacto', href: '/#contacto' },   // ← antes: '#contacto'
 ];
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-	const toggleMobileMenu = () => {
-		setMobileMenuOpen(!mobileMenuOpen);
-	};
-
-	const closeMobileMenu = () => {
-		setMobileMenuOpen(false);
-	};
+	const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+	const closeMobileMenu = () => setMobileMenuOpen(false);
 
 	return (
 		<>
@@ -51,8 +46,8 @@ export default function Header() {
 						))}
 					</div>
 
-					{/* CTA Button Desktop -> va al ancla de contacto */}
-					<Link href="#contacto" className={styles.ctaButton}>
+					{/* CTA Button Desktop */}
+					<Link href="/#contacto" className={styles.ctaButton}>
 						Consultar
 					</Link>
 
@@ -60,7 +55,7 @@ export default function Header() {
 					<button
 						className={styles.hamburger}
 						onClick={toggleMobileMenu}
-						aria-label="Toggle menu"
+						aria-label="Abrir menú"
 						aria-expanded={mobileMenuOpen}
 					>
 						<span className={styles.hamburgerLine}></span>
@@ -75,7 +70,7 @@ export default function Header() {
 						<button
 							className={styles.closeButton}
 							onClick={closeMobileMenu}
-							aria-label="Close menu"
+							aria-label="Cerrar menú"
 						>
 							✕
 						</button>
@@ -91,7 +86,7 @@ export default function Header() {
 								</Link>
 							))}
 							<Link
-								href="#contacto"
+								href="/#contacto"
 								className={styles.mobileCta}
 								onClick={closeMobileMenu}
 							>
@@ -102,7 +97,7 @@ export default function Header() {
 				)}
 			</nav>
 
-			{/* Hero Banner Section */}
+			{/* Hero Banner — solo en la home */}
 			<header className={styles.hero}>
 				<div
 					className={styles.heroBg}
@@ -121,7 +116,7 @@ export default function Header() {
 					<p className={styles.heroSubtitle}>
 						Más de 25 años de experiencia profesional
 					</p>
-					<Link href="#contacto" className={styles.heroCta}>
+					<Link href="/#contacto" className={styles.heroCta}>
 						Consultar Ahora
 					</Link>
 				</div>

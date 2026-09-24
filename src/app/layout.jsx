@@ -1,6 +1,15 @@
+// src/app/layout.js
 import { Merriweather, Inter } from 'next/font/google';
 import Script from 'next/script';
-import '@/app/globals.css';
+import CookieConsent from './components/CookieConsent';
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_SHORT_NAME,
+  SITE_DESCRIPTION,
+  CONTACT,
+} from '../lib/site';
+import './globals.css';
 
 /* =========================================================
    FUENTES
@@ -10,6 +19,7 @@ const merriweather = Merriweather({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-serif',
+  preload: true,
 });
 
 const inter = Inter({
@@ -17,30 +27,33 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
+  preload: true,
 });
 
 /* =========================================================
    METADATA GLOBAL
    ========================================================= */
 export const metadata = {
-  metadataBase: new URL('https://dominio.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Especialista en Derecho de Daños - Dr. Galígani',
-    template: '%s | Dr. Galígani',
+    default: `Especialista en Derecho de Daños | ${SITE_NAME}`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'Abogado especialista en responsabilidad civil, accidentes de tránsito y derecho de seguros. Más de 25 años de experiencia en Buenos Aires.',
+  description: SITE_DESCRIPTION,
   keywords: [
     'abogado derecho daños',
-    'responsabilidad civil',
-    'accidentes tránsito',
+    'responsabilidad civil Buenos Aires',
+    'accidentes tránsito abogado',
     'derecho seguros',
-    'Buenos Aires',
-    'Dr. Galígani',
+    'abogado Dr. Galígani',
+    'indemnización por daños',
+    'reclamo aseguradora',
+    'estudio jurídico CABA',
   ],
-  authors: [{ name: 'Dr. Galígani' }],
+  authors: [{ name: 'Dr. Galígani', url: SITE_URL }],
   creator: 'Dr. Galígani',
-  publisher: 'Dr. Galígani',
+  publisher: SITE_NAME,
+  category: 'legal',
   formatDetection: {
     email: false,
     address: false,
@@ -49,30 +62,41 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://dominio.com',
-    siteName: 'Estudio Jurídico Dr. Galígani',
-    title: 'Especialista en Derecho de Daños - Dr. Galígani',
-    description:
-      'Abogado especialista en responsabilidad civil, accidentes de tránsito y derecho de seguros.',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Dr. Galígani - Especialista en Derecho de Daños',
+        alt: `${SITE_NAME} - Especialista en Derecho de Daños`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Especialista en Derecho de Daños - Dr. Galígani',
-    description:
-      'Abogado especialista en responsabilidad civil, accidentes de tránsito y derecho de seguros.',
+    title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
     images: ['/og-image.jpg'],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/site.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: SITE_SHORT_NAME,
   },
   robots: {
     index: true,
@@ -82,10 +106,14 @@ export const metadata = {
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
   alternates: {
-    canonical: 'https://dominio.com',
+    canonical: SITE_URL,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
   },
 };
 
@@ -96,36 +124,41 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#0f172a',
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#0f2a4a' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a1929' },
+  ],
+  colorScheme: 'light',
 };
 
 /* =========================================================
-   JSON-LD · Schema LocalBusiness
+   JSON-LD · Schema LegalService + LocalBusiness
    ========================================================= */
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LegalService',
-  '@id': 'https://dominio.com/#organization',
-  name: 'Estudio Jurídico Dr. Galígani',
-  image: 'https://dominio.com/logo.png',
-  logo: 'https://dominio.com/logo.png',
-  description:
-    'Estudio jurídico especializado en derecho de daños, responsabilidad civil y accidentes de tránsito.',
-  url: 'https://dominio.com',
-  telephone: '+54-11-0000-0000',
-  email: 'contacto@dominio.com',
+  '@type': ['LegalService', 'LocalBusiness'],
+  '@id': `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  alternateName: SITE_SHORT_NAME,
+  image: `${SITE_URL}/og-image.jpg`,
+  logo: `${SITE_URL}/logo.png`,
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  telephone: CONTACT.phone,
+  email: CONTACT.email,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '[Dirección]',
-    addressLocality: 'Buenos Aires',
-    addressRegion: 'CABA',
-    postalCode: '[CP]',
-    addressCountry: 'AR',
+    streetAddress: CONTACT.address.street,
+    addressLocality: CONTACT.address.city,
+    addressRegion: CONTACT.address.region,
+    postalCode: CONTACT.address.postalCode,
+    addressCountry: CONTACT.address.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: -34.6037,
-    longitude: -58.3816,
+    latitude: CONTACT.geo.latitude,
+    longitude: CONTACT.geo.longitude,
   },
   areaServed: {
     '@type': 'Country',
@@ -135,21 +168,27 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '19:00',
+      dayOfWeek: CONTACT.hours.days,
+      opens: CONTACT.hours.opens,
+      closes: CONTACT.hours.closes,
     },
   ],
   sameAs: [
-    'https://www.linkedin.com/in/[perfil]',
-    'https://www.instagram.com/[perfil]',
-  ],
+    CONTACT.social.linkedin,
+    CONTACT.social.instagram,
+  ].filter((url) => url && !url.includes('[perfil]')),
   knowsAbout: [
     'Derecho de Daños',
     'Responsabilidad Civil',
     'Accidentes de Tránsito',
     'Derecho de Seguros',
+    'Riesgos del Trabajo',
   ],
+  founder: {
+    '@type': 'Person',
+    name: 'Dr. Galígani',
+    jobTitle: 'Abogado Especialista en Derecho de Daños',
+  },
 };
 
 /* =========================================================
@@ -165,28 +204,44 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
-        {/* JSON-LD · LocalBusiness / LegalService */}
+        {/* Preconnect a dominios críticos */}
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* JSON-LD · LegalService / LocalBusiness */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
         />
       </head>
 
-      {/*
-        suppressHydrationWarning en <body>:
-        evita el warning de hidratación causado por extensiones del navegador
-        (ej: ColorZilla agrega cz-shortcut-listen="true").
-        NO afecta el render ni el SEO; solo silencia el aviso en desarrollo.
-      */}
       <body
         className="min-h-screen flex flex-col antialiased bg-white text-[#1f2937]"
         suppressHydrationWarning
       >
-        {children}
+        {/* Skip to content — accesibilidad */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#0f2a4a] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+        >
+          Saltar al contenido principal
+        </a>
+
+        <div id="main-content" className="flex flex-col min-h-screen">
+          {children}
+        </div>
+
+        <CookieConsent />
 
         {/* ============================================
-            GOOGLE ANALYTICS 4 (opcional)
-            ============================================ */}
+                    GOOGLE ANALYTICS 4
+                    ============================================ */}
         {gaId && (
           <>
             <Script
@@ -195,13 +250,14 @@ export default function RootLayout({ children }) {
             />
             <Script id="ga4-init" strategy="afterInteractive">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', {
-                  page_path: window.location.pathname,
-                });
-              `}
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', '${gaId}', {
+                                    page_path: window.location.pathname,
+                                    anonymize_ip: true,
+                                });
+                            `}
             </Script>
           </>
         )}

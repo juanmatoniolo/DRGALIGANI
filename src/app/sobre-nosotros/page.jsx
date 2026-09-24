@@ -12,13 +12,13 @@ import styles from './page.module.css';
 export const metadata = {
     title: 'Sobre Nosotros',
     description:
-        'Conocé al equipo del Estudio Jurídico especializado en derecho de daños, responsabilidad civil y accidentes de tránsito. Más de 25 años de experiencia.',
-    alternates: { canonical: 'https://dominio.com/sobre-nosotros' },
+        'Conocé al equipo del Estudio Jurídico Dr. Galígani. Más de 25 años de trayectoria en derecho de daños, responsabilidad civil y accidentes de tránsito.',
+    alternates: { canonical: '/sobre-nosotros' },
     openGraph: {
-        title: 'Sobre Nosotros | Estudio Jurídico',
+        title: 'Sobre Nosotros | Dr. Galígani',
         description:
-            'Equipo de abogados especializados en responsabilidad civil y accidentes de tránsito.',
-        url: 'https://dominio.com/sobre-nosotros',
+            'Equipo de abogados especializados en derecho de daños con más de tres décadas de trayectoria.',
+        url: '/sobre-nosotros',
         type: 'website',
     },
 };
@@ -334,3 +334,4 @@ export default function SobreNosotrosPage() {
         </>
     );
 }
+

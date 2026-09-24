@@ -1,0 +1,79 @@
+/* app/not-found.module.css */
+.wrapper {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+}
+
+.container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.code {
+    display: block;
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 6rem;
+    font-weight: 700;
+    color: #d4a574;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2rem;
+    color: #0f2a4a;
+    margin: 0 0 1rem;
+}
+
+.text {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primary,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary {
+    background-color: #d4a574;
+    color: #0f2a4a;
+}
+
+.primary:hover {
+    background-color: #c19a6b;
+    transform: translateY(-2px);
+}
+
+.secondary {
+    background-color: transparent;
+    color: #0f2a4a;
+    border: 2px solid #0f2a4a;
+}
+
+.secondary:hover {
+    background-color: #0f2a4a;
+    color: #ffffff;
+}

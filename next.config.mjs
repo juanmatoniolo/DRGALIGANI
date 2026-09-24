@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	// React Compiler (experimental, dejalo si lo querés)
+	// Redirige URLs sin barra a su versión con barra final.
+	// Soluciona que "https://drgaligani.vercel.app/" no muestre nada.
+	trailingSlash: true,
+
+	// React Compiler (experimental)
 	reactCompiler: true,
 
 	// Imágenes remotas y optimización
@@ -65,6 +69,17 @@ const nextConfig = {
 				source: "/og-image.jpg",
 				headers: [
 					{ key: "Cache-Control", value: "public, max-age=86400" },
+				],
+			},
+			{
+				// El SW debe revalidarse seguido para recibir actualizaciones
+				source: "/sw.js",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=0, must-revalidate",
+					},
+					{ key: "Service-Worker-Allowed", value: "/" },
 				],
 			},
 		];

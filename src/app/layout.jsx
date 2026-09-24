@@ -2,6 +2,7 @@
 import { Merriweather, Inter } from 'next/font/google';
 import Script from 'next/script';
 import CookieConsent from './components/CookieConsent';
+import ServiceWorkerRegister from './components/ServiceWorkerRegister';
 import {
   SITE_URL,
   SITE_NAME,
@@ -133,7 +134,7 @@ export const viewport = {
 };
 
 /* =========================================================
-   JSON-LD · Schema LegalService + LocalBusiness
+   JSON-LD · LegalService + LocalBusiness
    ========================================================= */
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -238,10 +239,11 @@ export default function RootLayout({ children }) {
         </div>
 
         <CookieConsent />
+        <ServiceWorkerRegister />
 
         {/* ============================================
-                    GOOGLE ANALYTICS 4
-                    ============================================ */}
+				    GOOGLE ANALYTICS 4
+				    ============================================ */}
         {gaId && (
           <>
             <Script
@@ -250,14 +252,14 @@ export default function RootLayout({ children }) {
             />
             <Script id="ga4-init" strategy="afterInteractive">
               {`
-                                window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-                                gtag('config', '${gaId}', {
-                                    page_path: window.location.pathname,
-                                    anonymize_ip: true,
-                                });
-                            `}
+								window.dataLayer = window.dataLayer || [];
+								function gtag(){dataLayer.push(arguments);}
+								gtag('js', new Date());
+								gtag('config', '${gaId}', {
+									page_path: window.location.pathname,
+									anonymize_ip: true,
+								});
+							`}
             </Script>
           </>
         )}

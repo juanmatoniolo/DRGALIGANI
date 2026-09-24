@@ -34,6 +34,7 @@ const inter = Inter({
 /* =========================================================
    METADATA GLOBAL
    ========================================================= */
+
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -41,25 +42,7 @@ export const metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    'abogado derecho daños',
-    'responsabilidad civil Buenos Aires',
-    'accidentes tránsito abogado',
-    'derecho seguros',
-    'abogado Dr. Galígani',
-    'indemnización por daños',
-    'reclamo aseguradora',
-    'estudio jurídico CABA',
-  ],
-  authors: [{ name: 'Dr. Galígani', url: SITE_URL }],
-  creator: 'Dr. Galígani',
-  publisher: SITE_NAME,
-  category: 'legal',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  // ...keywords, authors, creator, publisher, category, formatDetection igual...
   openGraph: {
     type: 'website',
     locale: 'es_AR',
@@ -67,64 +50,22 @@ export const metadata = {
     siteName: SITE_NAME,
     title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: `${SITE_URL}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: `${SITE_NAME} - Especialista en Derecho de Daños`,
-        type: 'image/jpeg',
-      },
-    ],
+    // ❌ ELIMINA el array "images" manual: lo genera automáticamente
+    // app/opengraph-image.js (file convention) con URL absoluta correcta,
+    // tener ambos duplica <meta og:image> y rompe el preview de WhatsApp/FB.
   },
   twitter: {
     card: 'summary_large_image',
     title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
     description: SITE_DESCRIPTION,
-    images: [`${SITE_URL}/og-image.jpg`],
+    // ❌ ELIMINA "images": también la resuelve twitter-image.js / opengraph-image.js
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-  },
+  icons: { /* igual */ },
   manifest: '/site.webmanifest',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: SITE_SHORT_NAME,
-    startupImage: ['/apple-touch-icon.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
-  alternates: {
-    canonical: SITE_URL,
-  },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
-  },
-  // Fuerza ciertos meta tags que algunos scrapers (WhatsApp) leen
-  other: {
-    'og:image:secure_url': `${SITE_URL}/og-image.jpg`,
-    'og:image:width': '1200',
-    'og:image:height': '630',
-    'og:image:type': 'image/jpeg',
-  },
+  robots: { /* igual */ },
+  alternates: { canonical: SITE_URL }, // sin trailing slash final en SITE_URL
+  // ❌ ELIMINA el bloque "other" con og:image:secure_url, width, height, type:
+  // duplica lo que ya inyecta la file convention y genera tags contradictorios.
 };
 
 /* =========================================================

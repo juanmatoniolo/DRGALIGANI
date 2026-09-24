@@ -12,17 +12,14 @@ export default function ServiceWorkerRegister() {
         if (process.env.NODE_ENV !== 'production') return;
 
         const register = () => {
+            // components/ServiceWorkerRegister.jsx — fuerza check de update inmediato
             navigator.serviceWorker
                 .register('/sw.js', { scope: '/' })
                 .then((reg) => {
-                    console.log('[SW] Registrado:', reg.scope);
-
-                    // Buscar updates cada 60 minutos
+                    reg.update(); // chequeo inmediato, no solo cada 60min
                     setInterval(() => reg.update(), 60 * 60 * 1000);
                 })
-                .catch((err) => {
-                    console.error('[SW] Error al registrar:', err);
-                });
+                .catch((err) => console.error('[SW] Error al registrar:', err));
         };
 
         if (document.readyState === 'complete') {

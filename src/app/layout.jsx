@@ -1,8 +1,8 @@
 // src/app/layout.js
 import { Merriweather, Inter } from 'next/font/google';
 import Script from 'next/script';
-import CookieConsent from '../components/CookieConsent';
-import ServiceWorkerRegister from '../components/ServiceWorkerRegister';
+import CookieConsent from './components/CookieConsent';
+import ServiceWorkerRegister from './components/ServiceWorkerRegister';
 import {
   SITE_URL,
   SITE_NAME,

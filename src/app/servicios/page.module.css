@@ -1,0 +1,456 @@
+/* app/servicios/page.module.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================
+   HERO + BREADCRUMBS
+   ============================================ */
+.hero {
+    background: linear-gradient(135deg, #0f2a4a 0%, #0a1929 100%);
+    color: #ffffff;
+    padding: 5rem 1.5rem 4rem;
+}
+
+.breadcrumbs {
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: #ffffff;
+}
+
+.breadcrumbs li[aria-current='page'] {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.heroTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+    animation: fadeSlideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s backwards;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 640px;
+    line-height: 1.6;
+    margin: 0;
+    animation: fadeSlideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   HEADERS DE SECCIÓN
+   ============================================ */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sectionTag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #d4a574;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.5rem;
+    color: #0f2a4a;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.sectionSubtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ============================================
+   SERVICIOS
+   ============================================ */
+.servicesSection {
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 4px 12px rgba(15, 42, 74, 0.04);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serviceCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(15, 42, 74, 0.12);
+    border-color: rgba(212, 165, 116, 0.4);
+}
+
+.serviceIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background-color: rgba(212, 165, 116, 0.12);
+    color: #d4a574;
+    margin-bottom: 1.25rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serviceCard:hover .serviceIcon {
+    background-color: #d4a574;
+    color: #ffffff;
+    transform: rotate(-4deg) scale(1.05);
+}
+
+.serviceTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 1.35rem;
+    color: #0f2a4a;
+    margin: 0 0 0.75rem;
+    line-height: 1.3;
+}
+
+.serviceDescription {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #64748b;
+    margin: 0 0 1.25rem;
+}
+
+.serviceBullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+}
+
+.serviceBullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.bulletCheck {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgba(212, 165, 116, 0.18);
+    color: #d4a574;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.serviceLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f2a4a;
+    text-decoration: none;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.serviceLink:hover {
+    color: #d4a574;
+    gap: 0.75rem;
+}
+
+/* ============================================
+   BENEFICIOS
+   ============================================ */
+.benefitsSection {
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.benefitCard {
+    background-color: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefitCard:hover {
+    background-color: #ffffff;
+    border-color: rgba(212, 165, 116, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 42, 74, 0.08);
+}
+
+.benefitIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: rgba(212, 165, 116, 0.15);
+    color: #d4a574;
+    margin-bottom: 1rem;
+}
+
+.benefitTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 1.15rem;
+    color: #0f2a4a;
+    margin: 0 0 0.5rem;
+}
+
+.benefitDescription {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ============================================
+   CTA FINAL
+   ============================================ */
+.ctaSection {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #0f2a4a 0%, #0a1929 100%);
+    color: #ffffff;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.ctaText {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.ctaButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 2rem;
+    background-color: #d4a574;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.35);
+}
+
+.ctaPrimary:hover {
+    background-color: #c19a6b;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(212, 165, 116, 0.45);
+    color: #ffffff;
+}
+
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaSecondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* ============================================
+   MEDIA QUERIES
+   ============================================ */
+@media (min-width: 640px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefitsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ctaButtons {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .benefitsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .heroTitle {
+        font-size: 3.5rem;
+    }
+
+    .sectionTitle,
+    .ctaTitle {
+        font-size: 2.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 3.5rem 1rem 2.5rem;
+    }
+
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .servicesSection,
+    .benefitsSection,
+    .ctaSection {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.85rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+    }
+
+    .sectionHeader {
+        margin-bottom: 2.5rem;
+    }
+
+    .ctaTitle {
+        font-size: 1.85rem;
+    }
+
+    .ctaText {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .heroTitle,
+    .heroSubtitle {
+        animation: none;
+    }
+
+    .serviceCard,
+    .benefitCard,
+    .serviceIcon,
+    .serviceLink {
+        transition: none;
+    }
+
+    .serviceCard:hover .serviceIcon {
+        transform: none;
+    }
+}

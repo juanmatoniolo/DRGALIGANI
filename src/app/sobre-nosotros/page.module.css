@@ -1,0 +1,571 @@
+/* app/sobre-nosotros/page.module.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================
+   HERO + BREADCRUMBS
+   ============================================ */
+.hero {
+    background: linear-gradient(135deg, #0f2a4a 0%, #0a1929 100%);
+    color: #ffffff;
+    padding: 5rem 1.5rem 4rem;
+}
+
+.breadcrumbs {
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: #ffffff;
+}
+
+.breadcrumbs li[aria-current='page'] {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.heroTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 640px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ============================================
+   HEADERS DE SECCIÓN
+   ============================================ */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.sectionTag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #d4a574;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.5rem;
+    color: #0f2a4a;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.sectionSubtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ============================================
+   EQUIPO
+   ============================================ */
+.teamSection {
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+}
+
+/* ============================================
+   BIO
+   ============================================ */
+.bioSection {
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+    scroll-margin-top: 100px;
+}
+
+.bioGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.bioImageWrap {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 42, 74, 0.12);
+}
+
+.bioImage {
+    object-fit: cover;
+}
+
+.bioTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.25rem;
+    color: #0f2a4a;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+}
+
+.bioText p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 1rem;
+}
+
+.bioText strong {
+    color: #0f2a4a;
+}
+
+/* ============================================
+   STATS
+   ============================================ */
+.statsSection {
+    padding: 4rem 1.5rem;
+    background-color: #ffffff;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.statCard {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(15, 42, 74, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 42, 74, 0.1);
+}
+
+.statValue {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0f2a4a;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* ============================================
+   TIMELINE / CERTIFICACIONES
+   ============================================ */
+.certSection {
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0 0 0 2rem;
+    margin: 0 auto;
+    max-width: 680px;
+    position: relative;
+    border-left: 2px solid rgba(15, 42, 74, 0.15);
+}
+
+.timelineItem {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timelineItem:last-child {
+    margin-bottom: 0;
+}
+
+.timelineDot {
+    position: absolute;
+    left: -2.4rem;
+    top: 0.35rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #d4a574;
+    border: 3px solid #f8fafc;
+    box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.3);
+}
+
+.timelineYear {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #d4a574;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.timelineTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f2a4a;
+    margin: 0 0 0.15rem;
+}
+
+.timelineInstitution {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ============================================
+   VALORES
+   ============================================ */
+.valuesSection {
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.valueCard {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(15, 42, 74, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.valueCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(15, 42, 74, 0.1);
+}
+
+.valueIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: rgba(212, 165, 116, 0.15);
+    color: #d4a574;
+    margin-bottom: 1.25rem;
+}
+
+.valueTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 1.35rem;
+    color: #0f2a4a;
+    margin: 0 0 0.75rem;
+}
+
+.valueDescription {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ============================================
+   CTA FINAL
+   ============================================ */
+.ctaSection {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #0f2a4a 0%, #0a1929 100%);
+    color: #ffffff;
+    text-align: center;
+}
+
+.ctaTitle {
+    font-family: var(--font-serif, 'Merriweather', serif);
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+}
+
+.ctaText {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.ctaButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 2rem;
+    background-color: #d4a574;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.35);
+}
+
+.ctaPrimary:hover {
+    background-color: #c19a6b;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(212, 165, 116, 0.45);
+    color: #ffffff;
+}
+
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ctaSecondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* ============================================
+   MEDIA QUERIES
+   ============================================ */
+@media (min-width: 768px) {
+    .statsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .valuesGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ctaButtons {
+        flex-direction: row;
+    }
+
+    .heroTitle {
+        font-size: 3.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.75rem;
+    }
+
+    .bioTitle {
+        font-size: 2.5rem;
+    }
+
+    .ctaTitle {
+        font-size: 2.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bioGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 3.5rem 1rem 2.5rem;
+    }
+
+    .heroTitle {
+        font-size: 2.25rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .teamSection,
+    .bioSection,
+    .certSection,
+    .valuesSection,
+    .ctaSection {
+        padding: 3rem 1rem;
+    }
+
+    .statsSection {
+        padding: 2.5rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.85rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+    }
+
+    .sectionHeader {
+        margin-bottom: 2.5rem;
+    }
+
+    .bioTitle {
+        font-size: 1.75rem;
+    }
+
+    .ctaTitle {
+        font-size: 1.85rem;
+    }
+
+    .ctaText {
+        font-size: 1rem;
+    }
+
+    .statValue {
+        font-size: 1.85rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timelineDot {
+        left: -1.9rem;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   ANIMACIONES DEL HERO
+   ============================================ */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.breadcrumbs {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.heroTitle {
+    animation: fadeSlideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.05s backwards;
+}
+
+.heroSubtitle {
+    animation: fadeSlideUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+}
+
+/* ============================================
+   PULIDO DE CARDS (hover más suave)
+   ============================================ */
+.statCard,
+.valueCard {
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statCard:hover,
+.valueCard:hover {
+    border-color: rgba(212, 165, 116, 0.5);
+}
+
+/* Valor destacado (ej: "Sin cargo") más pequeño si es texto */
+.statValue {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    word-break: keep-all;
+}
+
+/* ============================================
+   RESPETO POR REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .breadcrumbs,
+    .heroTitle,
+    .heroSubtitle {
+        animation: none;
+    }
+
+    .statCard,
+    .valueCard {
+        transition: none;
+    }
+}

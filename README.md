@@ -1,5 +1,3 @@
-@AGENTS.md
-
 # PROMPT DE DESARROLLO: SITIO WEB ESTUDIO JURÍDICO
 
 ## Derecho de Daños - Especialización Profesional
@@ -1083,3 +1081,11 @@ SSL: automático (Vercel + DonWeb)
     - Chatbot con IA
     - Integración WhatsApp Business
     - Sistema de citas/agendamiento
+
+pagina de politica de privacidad
+consentimientos de coockies
+consentimientos en formularios
+sitio accesible,
+texto alternativo, verifica contraste de colores
+SEO , PWA para andorir,w eb y ihpone,
+robot.txt, manifest.json

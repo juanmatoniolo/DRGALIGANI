@@ -1,4 +1,4 @@
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL } from "../lib/site";
 
 export default function sitemap() {
 	const now = new Date();

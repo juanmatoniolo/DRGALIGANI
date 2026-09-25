@@ -12,9 +12,6 @@ import {
 } from '../lib/site';
 import './globals.css';
 
-/* =========================================================
-   FUENTES
-   ========================================================= */
 const merriweather = Merriweather({
   weight: ['300', '400', '700'],
   subsets: ['latin'],
@@ -31,46 +28,75 @@ const inter = Inter({
   preload: true,
 });
 
-/* =========================================================
-   METADATA GLOBAL
-   ========================================================= */
+const TITLE = 'Dr. Galígani & Asociados';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `Especialista en Derecho de Daños | ${SITE_NAME}`,
-    template: `%s | ${SITE_NAME}`,
+    default: `${TITLE} | Especialista en Derecho de Daños`,
+    template: `%s | ${TITLE}`,
   },
   description: SITE_DESCRIPTION,
-  // ...keywords, authors, creator, publisher, category, formatDetection igual...
+  keywords: [
+    'abogado derecho daños',
+    'responsabilidad civil Buenos Aires',
+    'accidentes tránsito abogado',
+    'derecho seguros',
+    'abogado Dr. Galígani',
+    'indemnización por daños',
+    'reclamo aseguradora',
+    'estudio jurídico CABA',
+  ],
+  authors: [{ name: 'Dr. Galígani', url: SITE_URL }],
+  creator: 'Dr. Galígani',
+  publisher: SITE_NAME,
+  category: 'legal',
+  formatDetection: { email: false, address: false, telephone: false },
+  // OG/Twitter: sin "images" manual, lo resuelve opengraph-image.js automáticamente
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     url: SITE_URL,
-    siteName: SITE_NAME,
-    title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
+    siteName: TITLE,
+    title: TITLE,
     description: SITE_DESCRIPTION,
-    // ❌ ELIMINA el array "images" manual: lo genera automáticamente
-    // app/opengraph-image.js (file convention) con URL absoluta correcta,
-    // tener ambos duplica <meta og:image> y rompe el preview de WhatsApp/FB.
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Especialista en Derecho de Daños | ${SITE_NAME}`,
+    title: TITLE,
     description: SITE_DESCRIPTION,
-    // ❌ ELIMINA "images": también la resuelve twitter-image.js / opengraph-image.js
   },
-  icons: { /* igual */ },
-  manifest: '/site.webmanifest',
-  robots: { /* igual */ },
-  alternates: { canonical: SITE_URL }, // sin trailing slash final en SITE_URL
-  // ❌ ELIMINA el bloque "other" con og:image:secure_url, width, height, type:
-  // duplica lo que ya inyecta la file convention y genera tags contradictorios.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: SITE_SHORT_NAME,
+    startupImage: ['/apple-touch-icon.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: { canonical: SITE_URL },
+  verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined },
 };
 
-/* =========================================================
-   VIEWPORT
-   ========================================================= */
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -83,16 +109,13 @@ export const viewport = {
   colorScheme: 'light',
 };
 
-/* =========================================================
-   JSON-LD · LegalService + LocalBusiness
-   ========================================================= */
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['LegalService', 'LocalBusiness'],
   '@id': `${SITE_URL}/#organization`,
-  name: SITE_NAME,
+  name: TITLE,
   alternateName: SITE_SHORT_NAME,
-  image: `${SITE_URL}/og-image.jpg`,
+  image: `${SITE_URL}/opengraph-image`,
   logo: `${SITE_URL}/logo.png`,
   description: SITE_DESCRIPTION,
   url: SITE_URL,
@@ -111,23 +134,17 @@ const localBusinessSchema = {
     latitude: CONTACT.geo.latitude,
     longitude: CONTACT.geo.longitude,
   },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Argentina',
-  },
+  areaServed: { '@type': 'Country', name: 'Argentina' },
   priceRange: '$$',
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: CONTACT.hours.days,
-      opens: CONTACT.hours.opens,
-      closes: CONTACT.hours.closes,
-    },
-  ],
-  sameAs: [
-    CONTACT.social.linkedin,
-    CONTACT.social.instagram,
-  ].filter((url) => url && !url.includes('[perfil]')),
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: CONTACT.hours.days,
+    opens: CONTACT.hours.opens,
+    closes: CONTACT.hours.closes,
+  }],
+  sameAs: [CONTACT.social.linkedin, CONTACT.social.instagram].filter(
+    (url) => url && !url.includes('[perfil]')
+  ),
   knowsAbout: [
     'Derecho de Daños',
     'Responsabilidad Civil',
@@ -142,78 +159,43 @@ const localBusinessSchema = {
   },
 };
 
-/* =========================================================
-   ROOT LAYOUT
-   ========================================================= */
 export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html
-      lang="es-AR"
-      className={`${merriweather.variable} ${inter.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="es-AR" className={`${merriweather.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
-        {/* Preconnect a dominios críticos */}
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-
-        {/* JSON-LD · LegalService / LocalBusiness */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
+      <body className="min-h-screen flex flex-col antialiased bg-white text-[#1f2937]" suppressHydrationWarning>
 
-      <body
-        className="min-h-screen flex flex-col antialiased bg-white text-[#1f2937]"
-        suppressHydrationWarning
-      >
-        {/* Skip to content — accesibilidad */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#0f2a4a] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#0f2a4a] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
         >
-          Saltar al contenido principal
-        </a>
-
-        <div id="main-content" className="flex flex-col min-h-screen">
-          {children}
-        </div>
-
-        <CookieConsent />
-        <ServiceWorkerRegister />
-
-        {/* ============================================
-				    GOOGLE ANALYTICS 4
-				    ============================================ */}
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
+        Saltar al contenido principal
+      </a>
+      <div id="main-content" className="flex flex-col min-h-screen">{children}</div>
+      <CookieConsent />
+      <ServiceWorkerRegister />
+      {gaId && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+          <Script id="ga4-init" strategy="afterInteractive">
+            {`
 								window.dataLayer = window.dataLayer || [];
 								function gtag(){dataLayer.push(arguments);}
 								gtag('js', new Date());
-								gtag('config', '${gaId}', {
-									page_path: window.location.pathname,
-									anonymize_ip: true,
-								});
+								gtag('config', '${gaId}', { page_path: window.location.pathname, anonymize_ip: true });
 							`}
-            </Script>
-          </>
-        )}
-      </body>
-    </html>
+          </Script>
+        </>
+      )}
+    </body>
+    </html >
   );
 }

@@ -1,6 +1,7 @@
+// src/app/manifest.js
 export default function manifest() {
 	return {
-		name: "Estudio Jurídico Dr. Galígani",
+		name: "Dr. Galígani & Asociados",
 		short_name: "Dr. Galígani",
 		description:
 			"Especialistas en derecho de daños, responsabilidad civil y accidentes de tránsito.",
